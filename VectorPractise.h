@@ -27,7 +27,16 @@ public:
 	{
 		std::copy(vector.m_elem, vector.m_elem + m_size,m_elem);
 	}
-
+	Vector& operator = (const Vector& copy)
+	{
+		double* tmp = new double[copy.vectorsize()];
+		std::copy(copy.m_elem, copy.m_elem + copy.vectorsize(), tmp);
+		delete[] m_elem;
+		m_elem = tmp;
+		m_size = copy.vectorsize();
+		
+		return *this;
+	}
   ~Vector()
   {
     delete[] m_elem;
