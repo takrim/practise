@@ -3,5 +3,5 @@
     "command": "g++",
     "isShellCommand": true,
     "showOutput": "always",
-    "args": ["-g", "CompileMe.cpp"]
+    "args": ["-g","-std=c++14", "CompileMe.cpp"]
 }
