@@ -25,8 +25,8 @@ class Vector
         m_space = newmalloc;
     }
 
-  public:
     double *m_elem;
+  public:
     void pushback(double value)
     {
         if (m_size == 0)
@@ -74,12 +74,22 @@ class Vector
         std::cout << "Copy assignment operator called" << std::endl;
         return *this;
     }
-    Vector(Vector &&vector) : m_size{vector.vectorsize()}, m_space{m_size}, m_elem{new double[m_size]}
+    Vector(Vector&& vector) : m_size{vector.vectorsize()}, m_space{m_size}, m_elem{new double[m_size]}
     {
         std::cout << "Move constructor called" << std::endl;
         std::copy(vector.m_elem, vector.m_elem + m_size, m_elem);
     }
-    Vector &operator=(Vector &&vector)
+
+    double &operator [] (int n)
+    {
+        return m_elem[n];
+    }
+    double &operator [] (int n) const
+    {
+        return m_elem[n];
+    }
+
+    Vector &operator=(Vector&& vector)
     {
         delete[] m_elem;
         m_size = vector.vectorsize();
