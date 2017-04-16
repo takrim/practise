@@ -1,16 +1,16 @@
 #include <iostream>
 #include "VectorPractise.h"
-void printVector(const tk::Vector& vector);
-tk::Vector MoveConstructorInvoke();
+void printVector(const tk::Vector<double>& vector);
+tk::Vector<double> MoveConstructorInvoke();
 int main()
 {
-    tk::Vector vector = {4, 3, 2, 53, 33, 22};
+    tk::Vector<double> vector = {4, 3, 2, 53, 33, 22};
     vector.pushback(32);
     vector.pushback(311);
     vector.pushback(312);
     vector.pushback(3212);
     printVector(vector);
-    tk::Vector vectorMoved (MoveConstructorInvoke());
+    tk::Vector<double> vectorMoved (MoveConstructorInvoke());
     printVector(vectorMoved);
     // tk::Vector vector1(vector);
     // vector.m_elem[0] = 9;
@@ -29,7 +29,7 @@ int main()
     // std::cout << "Hello World : " << vector1.m_elem[0] << ":" << vector.m_elem[0] << std::endl;
     return 0;
 }
-void printVector(const tk::Vector& vector)
+void printVector(const tk::Vector<double> & vector)
 {
     for(int i=0; i<vector.vectorsize(); i++)
     {
@@ -38,9 +38,9 @@ void printVector(const tk::Vector& vector)
     std::cout << " size:" << vector.vectorsize() << std::endl; 
 };
 
-tk::Vector MoveConstructorInvoke()
+tk::Vector<double> MoveConstructorInvoke()
 {
-    tk::Vector local( {4,22,42,11,114, 434,89,4,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,89});
+    tk::Vector<double> local( {4,22,42,11,114, 434,89,4,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,894,22,42,11,114, 434,89});
     return local;
 }
 // void checkmovedconstructor
